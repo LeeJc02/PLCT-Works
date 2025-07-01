@@ -22,7 +22,7 @@
 
 1. 对 [milk-v meles上部署yolov8n报错的Issue](https://github.com/revyos/revyos/issues/131) 在meles和LicheePi4a上分别进行复现并 [报告](report/report01.md)
 
-2. 为比对不同内核下TH1520的性能表现，使用6.6内核的LicheePi4a对 [各项Benchmark进行测试](https://docs.revyos.dev/docs/benchmark/Chromium-Fish-Bowl-Test/) （跳过重启测试）并进行总结 [报告](report/report02.md) ，测试项如下（测试数据记录与[6.6.92 benchmark](test_data/6.6.92%20benchmark/)：
+2. 为比对不同内核下TH1520的性能表现，使用6.6内核的LicheePi4a对 [各项Benchmark进行测试](https://docs.revyos.dev/docs/benchmark/Chromium-Fish-Bowl-Test/) （跳过重启测试）并进行总结 [报告](report/report02.md) ，测试项如下（测试数据记录与[6.6.92 benchmark](test_data/6.6.92%20benchmark/))：
     - Chromium鱼缸测试
     - coremark
     - glmark2
