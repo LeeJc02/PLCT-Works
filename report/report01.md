@@ -33,8 +33,12 @@ Visualize:       https://netron.app
 ## 2. hhb_runtime运行崩溃
 
 使用hhb编译命令进行编译
+```
 hhb -C --model-file ./yolov8n.onnx --data-scale-div 255 --board th1520 --input-name "images" --output-name "output0" --input-shape "1 3 640 640" --calibrate-dataset bus.jpg  --quantization-scheme "int8_asym"
-...成功构建文件，日志如下
+```
+
+成功构建文件，日志如下
+```
 [2025-06-11 17:41:58] (HHB LOG): Start import model.
 [2025-06-11 17:41:59] (HHB LOG): Model import completed! 
 [2025-06-11 17:41:59] (HHB LOG): Start quantization.
@@ -51,7 +55,9 @@ Calibrating: 100%|████████████████████�
 [2025-06-11 17:42:20] (HHB LOG): Start layout convert.
 [2025-06-11 17:42:20] (HHB LOG): Layout convert completed!
 [2025-06-11 17:42:20] (HHB LOG): Quantization completed!
-...将构建成功的文件copy到开发板后，进行复现步骤
+```
+将构建成功的文件copy到开发板后，进行复现步骤
+```
 sudo apt install python3-full
 python3 -m venv ./shl
 ./shl/bin/pip install shl-python
@@ -59,9 +65,13 @@ LIB=$(./shl/bin/python3 -m shl --whereis th1520)/lib
 export LD_LIBRARY_PATH=$LIB:$LD_LIBRARY_PATH
 cd hhb_out
 ./hhb_runtime ./hhb.bm ../bus.jpg
-...在运行后未发现 dmesg 后台日志有报错信息，分析崩溃报错，估计是 libshl_th1520.so.2 链接器发生的链接错误导致的崩溃，使用 lld 对 hhb_runtime 进行检查依赖
+```
+在运行后未发现 dmesg 后台日志有报错信息，分析崩溃报错，估计是 libshl_th1520.so.2 链接器发生的链接错误导致的崩溃，使用 lld 对 hhb_runtime 进行检查依赖
+```
 ldd ./hhb_runtime
-...得到动态依赖库列表如下
+```
+得到动态依赖库列表如下
+```
 linux-vdso.so.1 (0x0000003f9484e000)
   libshl_th1520.so.2 => /home/debian/hhb_out/shl/lib/python3.11/site-packages/shl/install_nn2/th1520/lib/libshl_th1520.so.2 (0x0000003f946eb000)
   libstdc++.so.6 => /lib/riscv64-linux-gnu/libstdc++.so.6 (0x0000003f94400000)
@@ -78,6 +88,6 @@ linux-vdso.so.1 (0x0000003f9484e000)
   libcrypto.so.3 => /lib/riscv64-linux-gnu/libcrypto.so.3 (0x0000003f92c00000)
   libz.so.1 => /lib/riscv64-linux-gnu/libz.so.1 (0x0000003f93101000)
   libzstd.so.1 => /lib/riscv64-linux-gnu/libzstd.so.1 (0x0000003f9303d000)
-
+```
 
 其中发现了 libshl_th1520.so.2 => /home/debian/hhb_out/shl/lib/python3.11/site-packages/shl/install_nn2/th1520/lib/libshl_th1520.so.2 (0x0000003f946eb000) ，操作成功，未复现错误，疑似开发板动态链接库配置问题或 hhb_runtime 文件构建问题
