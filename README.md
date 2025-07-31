@@ -36,7 +36,7 @@
 
 2. 对 [语雀 RevyOS 模型推理文档 ](https://www.yuque.com/za4k4z/yp3bry)进行复现、整理、并对 docs 中提交[PR](https://github.com/revyos/docs/pull/53)，相关内容如下：
 
-| 类别       | 模型名称      | 语雀链接 | 复现方式及文档 |
+| 类别       | 模型名称      | 复现方式 | 移植文档 |
 |------------|--------------|----------|----------------|
 | 图像分类   | [Resnet50](https://www.yuque.com/za4k4z/yp3bry/ovk8a3n28who4g70)      | CPU & NPU | 英文文档 |
 | 图像分类   | [MobilenetV2](https://www.yuque.com/za4k4z/yp3bry/bydoimgbukpbgzvk)   | CPU & NPU | 中文 & 英文档 |
