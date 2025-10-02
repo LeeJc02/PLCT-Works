@@ -57,4 +57,13 @@
 3. 对 docs 文档进行修复冲突和锚点链接问题
 
 
+### 2025年8月
 
+### 2025年9月
+
+1. 对 [docs 文档](https://docs.revyos.dev/docs/intro/)中 meles、pioneer、console-4a 更新最新镜像
+2. 在 revyos-c910v 删除后，对相关文档进行更新，并使用 revyos-base 代替
+3. 新增编译器相关说明中 GCC14.2 版本数据
+4. 将 [pull36](https://github.com/revyos/docs/pull/36) 中的内容整理至 docs 中并提交
+5. 将 [p7zip](https://docs.revyos.dev/docs/benchmark/p7zip/) 相关文档替换为 7zip
+6. 对文档规范性进行了审查修改，包括但不限于文档中英格式、语言逻辑、语法、翻译等
