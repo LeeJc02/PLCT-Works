@@ -67,3 +67,16 @@
 4. 将 [pull36](https://github.com/revyos/docs/pull/36) 中的内容整理至 docs 中并提交
 5. 将 [p7zip](https://docs.revyos.dev/docs/benchmark/p7zip/) 相关文档替换为 7zip
 6. 对文档规范性进行了审查修改，包括但不限于文档中英格式、语言逻辑、语法、翻译等
+
+### 2025年10月
+
+1. 对 [语雀 RevyOS 模型推理文档 ](https://www.yuque.com/za4k4z/yp3bry)进行复现、整理、并对 docs 中提交[PR](https://github.com/revyos/docs/pull/71)，相关内容如下：
+
+| 类别       | 模型名称      | 复现方式 | 移植文档 |
+|------------|--------------|----------|----------------|
+| 图像分类   | [YOLOv5](https://www.yuque.com/za4k4z/)      | CPU & NPU | 英文文档 |
+| 图像分类   | [YOLOX](https://www.yuque.com/za4k4z/yp3bry/)   | CPU & NPU | 中文 & 英文档 |
+
+2. 整合典型应用部分的 BERT 模型部署、YOLOX 模型部署、MobilenetV2 模型部署到 [使用 RevyOS 推理模型](https://docs.revyos.dev/docs/npu/) 总目录下，并提交 PR
+
+3. 对部分英文文档进行校验优化
